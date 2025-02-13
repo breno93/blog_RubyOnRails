@@ -57,3 +57,5 @@ group :development do
 
   gem "pg"
 end
+
+gem "devise"
