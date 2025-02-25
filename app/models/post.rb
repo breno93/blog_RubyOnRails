@@ -6,4 +6,6 @@ class Post < ApplicationRecord
   def set_default_views
     self.views ||= 0
   end
+
+  belongs_to :user
 end
