@@ -22,6 +22,17 @@ class CommentsController < ApplicationController
     redirect_to post_path(@post)
   end
 
+  def update
+    @comment = @post.comments.find(params[:id]) # Aqui localizo o comentário que quero atualizar
+    respond_to do |format|
+      if @comment.update(comment_params)
+          format.html { redirect_to post_url(@post), notice: "Comentário atualizado" }
+      else
+        format.html { redirect_to post_url(@post), alert: "Erro na atualização" }
+      end
+    end
+  end
+
   private
 
   def set_post
