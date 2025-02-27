@@ -14,6 +14,9 @@
             <%= button_to "Delete", [post, comment], class:"btn btn-danger", method: :delete, data: { confirm: "Tem certeza?" } %>
         </div>
     <% end %>
+    <div id="edit-form-<%comment.id%>" class="d-none"> 
+        <%= render "comments/form", post: @post, comment: comment%>
+    </div>
     <hr>
     <%= sanitize(comment.body) %>
 </div>
